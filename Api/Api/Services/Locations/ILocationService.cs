@@ -10,6 +10,7 @@ namespace Api.Services.Locations
     {
         List<SubDistrict> GetSubDistrictsByDate(DateTime date);
         List<SubDistrict> GetSubDistrictsByDateLocal(DateTime date);
-       
+        List<District> GetResultsByDate(DateTime date);
+
     }
 }

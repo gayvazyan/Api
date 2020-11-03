@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Api.MyModels;
+using Api.MyModels.Location;
 using Api.Services.Locations;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -116,6 +117,63 @@ namespace Api.Controllers
                     return NoContent();
                 }
                 return new JsonResult(pollingStations);
+            }
+            catch (Exception e)
+            {
+                response.Status = "failed";
+                response.Message = e.Message;
+                if (e.Message.Contains("was not recognized as a valid DateTime"))
+                {
+                    response.Message = response.Message + " The valid DateTime format is yyyy-MM-dd. e.g. 2019-12-13";
+                    return StatusCode(406, response);
+                }
+                else
+                {
+                    return BadRequest(response);
+                }
+            }
+        }
+
+
+        [HttpPost]
+        [Route("results")]
+        public IActionResult ResultsForCVIS([FromForm] string date)
+        {
+            Response response = new Response();
+            try
+            {
+                if (string.IsNullOrEmpty(date))
+                {
+                    response.Status = "failed";
+                    response.Message = "The date is required";
+                    return StatusCode(406, response);
+                }
+
+                var dt = DateTime.ParseExact(date, "yyyy-M-d", null);
+
+                var districtsResult = _locationService.GetResultsByDate(dt);
+                List<ResultCvis> resultsCvis = new List<ResultCvis>();
+                resultsCvis = districtsResult.Select(e => new ResultCvis
+                {
+                    Id = e.SubDistrictId,
+                    DistrictId = e.DistrictId,
+                    TypeId = e.TypeId,
+                    Region = e.RegionName,
+                    Community = e.CommunityName,
+                    Name = e.Name,
+                    CountOfBody = e.CountOfBody,
+                    BodyList = e.BodyList,
+                    PrecinctList = e.PrecinctList,
+                    BodyCount = e.BodyCount,
+                    Preliminary = e.EmployCount
+                }
+                ).ToList();
+
+                if (resultsCvis.Count == 0)
+                {
+                    return NoContent();
+                }
+                return new JsonResult(resultsCvis);
             }
             catch (Exception e)
             {
