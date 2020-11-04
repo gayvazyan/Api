@@ -1,0 +1,109 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Model\**" />
+    <Content Remove="Model\**" />
+    <EmbeddedResource Remove="Model\**" />
+    <None Remove="Model\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Model\CandidatePersons.cs" />
+    <Compile Include="Model\Candidates.cs" />
+    <Compile Include="Model\CandidatesResults.cs" />
+    <Compile Include="Model\CandidatesResults1.cs" />
+    <Compile Include="Model\CandidatesResults2.cs" />
+    <Compile Include="Model\CandidatesResultsElectronic.cs" />
+    <Compile Include="Model\CandidatesResultsForDiagram.cs" />
+    <Compile Include="Model\CandidateStates.cs" />
+    <Compile Include="Model\CandidateStatesEn.cs" />
+    <Compile Include="Model\City.cs" />
+    <Compile Include="Model\CommissionElect.cs" />
+    <Compile Include="Model\CommissionPersons.cs" />
+    <Compile Include="Model\CommissionPersonState.cs" />
+    <Compile Include="Model\Commissions.cs" />
+    <Compile Include="Model\Communitis.cs" />
+    <Compile Include="Model\Districts.cs" />
+    <Compile Include="Model\ElectionDecisions.cs" />
+    <Compile Include="Model\Elections.cs" />
+    <Compile Include="Model\ElectionStates.cs" />
+    <Compile Include="Model\ElectionTypes.cs" />
+    <Compile Include="Model\ElectiveResults.cs" />
+    <Compile Include="Model\ElectiveResults2.cs" />
+    <Compile Include="Model\ElectiveResultsElectronic.cs" />
+    <Compile Include="Model\ElectiveResultsForDiagram.cs" />
+    <Compile Include="Model\ElectTypeAccess.cs" />
+    <Compile Include="Model\GridWorking.cs" />
+    <Compile Include="Model\IntermediateInfo.cs" />
+    <Compile Include="Model\IntermediateResults.cs" />
+    <Compile Include="Model\Minorities.cs" />
+    <Compile Include="Model\Organizations.cs" />
+    <Compile Include="Model\OrganizationTypes.cs" />
+    <Compile Include="Model\PartieOrParty.cs" />
+    <Compile Include="Model\PartieOrPartyList.cs" />
+    <Compile Include="Model\PartieOrPartyPersons.cs" />
+    <Compile Include="Model\PartieOrPartyPersonsResults.cs" />
+    <Compile Include="Model\PartieOrPartyPersonsResults2.cs" />
+    <Compile Include="Model\PartisInfo.cs" />
+    <Compile Include="Model\PecMember.cs" />
+    <Compile Include="Model\PecMemberElectResult.cs" />
+    <Compile Include="Model\PecMemberLog.cs" />
+    <Compile Include="Model\PecMemberPartyResult.cs" />
+    <Compile Include="Model\PecMemberSertificate.cs" />
+    <Compile Include="Model\Protocols.cs" />
+    <Compile Include="Model\Recommendations.cs" />
+    <Compile Include="Model\RecomOrg.cs" />
+    <Compile Include="Model\Regions.cs" />
+    <Compile Include="Model\SeesionData.cs" />
+    <Compile Include="Model\SubDistricts.cs" />
+    <Compile Include="Model\UmSys.cs" />
+    <Compile Include="Model\UmSysNonRep.cs" />
+    <Compile Include="Model\VCandidate.cs" />
+    <Compile Include="Model\VCandidateParty.cs" />
+    <Compile Include="Model\VCandidatePersons.cs" />
+    <Compile Include="Model\VCandidatesResults.cs" />
+    <Compile Include="Model\VCandidatesResults2.cs" />
+    <Compile Include="Model\VCandidatesResultsR.cs" />
+    <Compile Include="Model\VCommunitis.cs" />
+    <Compile Include="Model\VElections.cs" />
+    <Compile Include="Model\VElectiveResults.cs" />
+    <Compile Include="Model\VElectiveResults2.cs" />
+    <Compile Include="Model\VElectiveResultsR.cs" />
+    <Compile Include="Model\VExpCandidatePersons.cs" />
+    <Compile Include="Model\VExpCommissionPersons.cs" />
+    <Compile Include="Model\VExpEntrustingPersons.cs" />
+    <Compile Include="Model\VExpPartieOrParty.cs" />
+    <Compile Include="Model\VExpPartieOrPartyPersons.cs" />
+    <Compile Include="Model\VGeoresults.cs" />
+    <Compile Include="Model\VPartieOrPartyPersons.cs" />
+    <Compile Include="Model\VResulteByDistrict.cs" />
+    <Compile Include="Model\VSubDistricts.cs" />
+    <Compile Include="Model\WatcherElectTypes.cs" />
+    <Compile Include="Model\Watchers.cs" />
+    <Compile Include="Model\WebAnnouncement.cs" />
+    <Compile Include="Model\WebCec.cs" />
+    <Compile Include="Model\WebCecarx.cs" />
+    <Compile Include="Model\WebCecEmployee.cs" />
+    <Compile Include="Model\WebNews.cs" />
+    <Compile Include="Model\WebNotifications.cs" />
+    <Compile Include="Model\WebSessions.cs" />
+    <Compile Include="Model\WorkPositionTypes.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+  </ItemGroup>
+
+
+</Project>
